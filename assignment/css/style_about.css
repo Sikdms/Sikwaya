@@ -1,28 +1,28 @@
-
- {
-  margin: 0;
-  padding: 0;
+{
+  
+  margin: 1px;
+  padding: 1px;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 ::selection {
-  color: #000;
-  background: #fff;
+  color: #821919;
+  background: #d15a5a;
 }
 nav {
-  position: fixed;
+  
   background: #1b1b1b;
   width: 100%;
-  padding: 10px 0;
-  z-index: 12;
+  padding: 5px;
+  z-index: 0;
 }
 nav .menu {
   max-width: 1250px;
-  margin: auto;
+  margin: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  
 }
 .menu .logo a {
   text-decoration: none;
@@ -38,11 +38,11 @@ nav .menu {
   margin-left: 7px;
 }
 .menu ul li:first-child {
-  margin-left: 0px;
+  margin-left: 5px;
 }
 .menu ul li a {
   text-decoration: none;
-  color: #fff;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 500;
   padding: 8px 15px;
@@ -51,68 +51,38 @@ nav .menu {
 }
 .menu ul li a:hover {
   background: #fff;
-  color: black;
+  color: rgb(244, 238, 238);
 }
-.img {
-  background: url("img1.jpg") no-repeat;
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-.img::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-}
-.center {
-  position: absolute;
-  top: 52%;
+
+.header {
+  
+  top: 90%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
-  padding: 0 20px;
-  text-align: center;
+  padding: 122px;
+  text-align: left;
 }
-.center .title {
-  color: #fff;
-  font-size: 55px;
-  font-weight: 600;
+
+.row:after{
+  content: "";
+  display: block;
+  clear:both;
 }
-.center .sub_title {
-  color: #fff;
-  font-size: 52px;
-  font-weight: 600;
+.content{
+  width:70%;
+  float: left;
+  background-color: rgb(230, 238, 129);
+  padding: 15px;
 }
-.center .btns {
-  margin-top: 20px;
+.side_bar{
+  padding: 20px;
+  float: right;
+  background-color: rgb(188, 181, 206);
+  width:21%;
 }
-.center .btns button {
-  height: 55px;
-  width: 170px;
-  border-radius: 5px;
-  border: none;
-  margin: 0 10px;
-  border: 2px solid white;
-  font-size: 20px;
-  font-weight: 500;
-  padding: 0 10px;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease;
+@media screen and (max-width: 800px) {
+  .content, .side_bar {
+      width: 100%;
+  }
 }
-.center .btns button:first-child {
-  color: #fff;
-  background: none;
-}
-.btns button:first-child:hover {
-  background: white;
-  color: black;
-}
-.center .btns button:last-child {
-  background: white;
-  color: black;
-}
+
