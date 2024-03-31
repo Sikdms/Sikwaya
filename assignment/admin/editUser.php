@@ -41,7 +41,7 @@
       
 
 
-    <form class="needs-validation" action = "../processes/user_process.php" method = "POST" >
+    <form class="needs-validation" action = "../processes/signup_process.php" method = "POST" >
           <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstname">First name:</label>
