@@ -24,9 +24,10 @@
     </nav>
     <div class="img"></div>
     <div class="center">
-      <form action = "processes/signup_process.php" method = "POST" autocomplete = "off">
-    <label>email: <br/>
-    <input type = "text" name = "email" placeholder = "email" autofocus  required><br/></label>
+       
+       <form action = "processes/signup_process.php" method = "POST" autocomplete = "off">
+    <label>Username: <br/>
+    <input type = "text" name = "username" placeholder = "username" autofocus  required><br/></label>
      
     <label>Password:<br/>
     <input type = "password" name = "password" placeholder = "Enter your password"  required><br/></label>
@@ -35,6 +36,11 @@
     <a href="signup.php">Sign up</a>
     
     </form>
+            <p class="form__text">
+                <a class="form__link" href="index.php" id="HOME" >Go back HOME.</a>
+            </p>
+    </div>
+   </form>
       
     </div>
   </body>
