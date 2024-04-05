@@ -5,14 +5,24 @@ SET time_zone = "+00:00";
 
 
 
+--
+-- Database: `assignm`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_order`
+--
+
 CREATE TABLE `tbl_order` (
   `order_id` int(11) NOT NULL,
   `Client_name` int(11) NOT NULL,
-  `services_name` varchar(45) NOT NULL,
-  `Client_id` int(11) NOT NULL,
+  `product_name` varchar(45) NOT NULL,
+  `farmer_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT 0,
-  `bill` int(11) NOT NULL DEFAULT 0,
-  `services_price` int(11) NOT NULL DEFAULT 0,
+  `product_buyingprice` int(11) NOT NULL DEFAULT 0,
+  `product_sellingprice` int(11) NOT NULL DEFAULT 0,
   `payment_picture` varchar(60) NOT NULL DEFAULT 'userImage.jpg',
   `isdeleted` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -25,10 +35,10 @@ CREATE TABLE `tbl_order` (
 
 CREATE TABLE `tbl_order_details` (
   `order_details_id` int(11) NOT NULL,
-  `services_name` varchar(45) NOT NULL,
-  `services_id` int(11) NOT NULL,
+  `product_name` varchar(45) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT 0,
-  `bill` int(11) NOT NULL DEFAULT 0,
+  `product_buyingprice` int(11) NOT NULL DEFAULT 0,
   `order_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,9 +54,9 @@ CREATE TABLE `tbl_order_details` (
 CREATE TABLE `tbl_payment` (
   `payment_id` int(11) NOT NULL,
   `Client_name` int(11) NOT NULL,
-  `services_name` varchar(45) NOT NULL,
+  `product_name` varchar(45) NOT NULL,
   `order_id` int(11) NOT NULL,
-  `bill` int(11) NOT NULL DEFAULT 0,
+  `product_buyingprice` int(11) NOT NULL DEFAULT 0,
   `payment_picture` varchar(60) NOT NULL DEFAULT 'userImage.jpg',
   `isdeleted` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -54,20 +64,21 @@ CREATE TABLE `tbl_payment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_services`
+-- Table structure for table `tbl_products`
 --
 
-CREATE TABLE `tbl_servises_details` (
-  `services_id` int(11) NOT NULL,
-  `services_name` varchar(45) NOT NULL,
-  `bill` int(11) NOT NULL DEFAULT 0,
-  `services_price` int(11) NOT NULL DEFAULT 0,
-  `Client_id` int(11) NOT NULL,
+CREATE TABLE `tbl_product_details` (
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(45) NOT NULL,
+  `product_marketprice` int(11) NOT NULL DEFAULT 0,
+  `product_buyingprice` int(11) NOT NULL DEFAULT 0,
+  `product_sellingprice` int(11) NOT NULL DEFAULT 0,
+  `farmer_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_services_details`
+-- Dumping data for table `tbl_product_details`
 --
 
 -- --------------------------------------------------------
@@ -79,7 +90,10 @@ CREATE TABLE `tbl_users` (
   `userId` bigint(11) NOT NULL,
   `firstname` varchar(45) NOT NULL,
   `lastname` varchar(45) NOT NULL,
+  `othername` varchar(50) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
   `gender` varchar(45) NOT NULL DEFAULT '0',
+  `username` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `password` varchar(60) NOT NULL,
   `userType` varchar(30) NOT NULL,
@@ -91,8 +105,8 @@ CREATE TABLE `tbl_users` (
 -- Dumping data for table `tbl_users`
 --
 
-INSERT INTO `tbl_users` (`userId`, `firstname`, `lastname`, `gender`, `email`, `password`, `userType`,  `created`, `isdeleted`) VALUES
-(1, 'john', 'kam','M','john@gmail.com', 'Empire2103', 'Client',  0, 0);
+INSERT INTO `tbl_users` (`userId`, `firstname`, `lastname`, `othername`, `dob`, `gender`, `username`, `email`, `password`, `userType`,  `created`, `isdeleted`) VALUES
+(1, 'john', 'kam', '22', NULL, 'M', 'john', 'john@gmail.com', '$2y$10$IgHG74mQRjCHZgwpn5ImPOvzpCQDhPfZcJwsdlqLuCk6w/RKqjcUC', 'admin',  0, 0);
 
 -- --------------------------------------------------------
 
@@ -105,8 +119,8 @@ CREATE TABLE IF NOT EXISTS `tbl_stock` (
   `stock_id` bigint(11) NOT NULL,
   `product_name` varchar(45) NOT NULL,
   `quantity` int NOT NULL DEFAULT 0,
-  `services_price` double NOT NULL DEFAULT 0,
-  `services_marketprice` int(11) NOT NULL DEFAULT 0
+  `product_sellingprice` double NOT NULL DEFAULT 0,
+  `product_marketprice` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -136,11 +150,11 @@ ALTER TABLE `tbl_payment`
   ADD KEY `fk_order_id` (`order_id`);
 
 --
--- Indexes for table `tbl_services`
+-- Indexes for table `tbl_products`
 --
-ALTER TABLE `tbl_services_details`
-  ADD PRIMARY KEY (`services_id`),
-  ADD KEY `fk_services_marketprice` (`services_marketprice`);
+ALTER TABLE `tbl_product_details`
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `fk_product_marketprice` (`product_marketprice`);
 
 
 --
@@ -148,7 +162,7 @@ ALTER TABLE `tbl_services_details`
 --
 ALTER TABLE `tbl_users`
   ADD PRIMARY KEY (`userId`),
-  ADD UNIQUE KEY `firstname` (`firstname`),
+  ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
@@ -208,4 +222,5 @@ ALTER TABLE `tbl_payment`
 ALTER TABLE `tbl_stock`
   MODIFY `stock_id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
+
 
