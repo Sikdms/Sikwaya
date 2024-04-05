@@ -28,39 +28,49 @@
      
      <div class="content">
         <h3>Sign Up</h3>
-<form action="processes/signup_process.php" method="post">
-    <label for="firstname">First name: </label><br>
-    <input type="text" id="firstname" name="firstname" placeholder="first Name " autofocus required /><br>
-   
-   <label for="lastname">lastname: </label><br>
-    <input type="text" id="lastname" name="lastname" placeholder="last Name" autofocus required /><br>
 
-    <label for="email_address">Email Address: </label><br>
-    <input type="email" id="email_address" name="email_address" placeholder="Email Address" /><br>
+    <form action= "processes/signup_process.php" method= "POST" autocomplete="off", class="register" style="line-height: 30px;">
+      <div class="logins">
+      
+      <div class="header">
+   
+   </div>
     
-    <label for="gender">Gender : </label><br> 
-   <select id="gender" required name="gender">
-      <option value = "">--Select your gender--</option>
+   <label>First name: <br/>
+   <input type = "text" class="register-input" name = "firstname" placeholder = "Enter your firstname" autofocus  /><br/></label>
+   <label>Last name: <br/>
+   <input type = "text" class="register-input" name = "lastname" placeholder = "Enter your last name" /><br/></label>
+   <label>Other name: <br/>
+   <input type = "text" class="register-input" name = "othername" placeholder = "Enter your othername" /><br/><br/></label>
+   <select name = "gender" required>
+         <option value = "">--Select your gender--</option>
          <option value = "Masculine">M</option>
          <option value = "Feminine">F</option>
          </select><br/>
-
-         <label for="password">Password: </label><br>
-    <input type="password" id="password" name="password" placeholder="Password" /><br>
-
-    <select name = "userType"  required>
+   <label>Date of birth: <br/>
+   <input type = "date"class="register-input" name = "dob" placeholder = "Enter your dob" required><br/></label>     
+   <label>User name:<br/>
+   <input type = "text" class="register-input" name = "username" placeholder = "Enter your user name"  required><br/></label>
+   <label>Email address:<br/>
+   <input type = "email" class="register-input" name = "email" placeholder = "Enter your email"  required><br/></label>
+   <label>Password:<br/>
+   <input type = "password" class="register-input" name = "password" placeholder = "Enter your password"  required><br/></label>
+   <label>Confirm password:<br/>
+   <input type = "password"  class="register-input" name = "passwordconf" placeholder = "Confirm password" required><br/></label>
+   
+   <select name = "userType"  required>
    <option value = "">--Select User Type--</option>
-   <option value = "admin">admin</option>
+   <option value = "farmer">Farmer</option>
    <option value = "Client">Client</option>
    
    <!--<option value = "admin">admin</option>-->
    
    </select><br/><br/>
-    
-    <input type="submit" name="" value="submit" />
-    
+   
+   <input type = "submit" name = "signup" value="Sign Up"><br/><br/>
+   
+   </form>
 
-</form>
     </div>
       
     </div>
