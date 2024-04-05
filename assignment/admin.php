@@ -30,10 +30,8 @@ require_once "config/dbConnect.php";
     <div class="img"></div>
     <div class="center">
       <div class="title">Hi am sikwaya</div>
-      <div class="sub_title">Welcome to my page!</div>
+      <div class="sub_title">Welcome admin</div>
       <div class="btns">
-        <button><a class="nav-link" href="admin/editUser.php">
-                  <span data-feather="users"></span>edituser</a></button>
         
         <button><a href="admin/manageAccount.php" style="text-decoration: none;"><span style="color: black;">View Users</span></a></button>
 
