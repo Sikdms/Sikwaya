@@ -11,13 +11,13 @@
     <nav>
       <div class="menu">
         <div class="logo">
-          <a href="index.html">Sikwaya</a>
+          <a href="feelback.php">Sikwaya</a>
         </div>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="Services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="Services.php">Services</a></li>
+          <li><a href="contact.php">Contact</a></li>
           
         </ul>
       </div>
